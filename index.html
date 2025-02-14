@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberScan Terminal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="background">
+      <img src="/cyberpunk-bg.jpg" alt="Cyberpunk Background" class="background-img">
+    </div>
+
+    <div class="content">
+      <h1 class="title">CyberScan Terminal</h1>
+
+      <form id="check-form">
+        <label for="url-input" class="form-label">Type Your URL:</label>
+        <input id="url-input" type="text" class="form-input" required />
+
+        <div class="checkbox-container">
+          <input id="email-checkbox" type="checkbox" class="checkbox">
+          <label for="email-checkbox" class="checkbox-label">Check Email Spoofing</label>
+        </div>
+
+        <div id="email-container" class="hidden">
+          <label for="email-input" class="form-label">Type Your Email Address:</label>
+          <input id="email-input" type="email" class="form-input" />
+        </div>
+
+        <button type="submit" id="submit-btn" class="submit-btn">Enter</button>
+      </form>
+
+      <!-- Response Section -->
+      <div id="response" class="hidden response-container">
+        <h2>Response:</h2>
+        <pre id="response-pre" class="response-text"></pre>
+      </div>
+
+      <!-- Error Section -->
+      <div id="error" class="hidden error-container">
+        <p id="error-message"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  
+  <!-- Inline JS for toggling email visibility -->
+  <script>
+    const emailCheckbox = document.getElementById('email-checkbox');
+    const emailContainer = document.getElementById('email-container');
+    emailCheckbox.addEventListener('change', () => {
+      emailContainer.classList.toggle('hidden', !emailCheckbox.checked);
+    });
+  </script>
+
+</body>
+</html>
